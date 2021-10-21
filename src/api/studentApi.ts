@@ -16,7 +16,7 @@ const studentApi = {
 
   add(data: Student): Promise<Student> {
     const url = '/students';
-    return axiosClient.post(url,data);
+    return axiosClient.post(url, data);
   },
 
   update(data: Student): Promise<Student> {
@@ -24,7 +24,7 @@ const studentApi = {
     return axiosClient.patch(url, data);
   },
 
-  removeEventListener(id: string): Promise<any> {
+  remove(id: string): Promise<any> {
     const url = `/students/${id}`;
     return axiosClient.delete(url);
   }
