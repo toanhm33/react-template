@@ -1,6 +1,8 @@
+import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { history } from 'utils';
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
@@ -11,11 +13,10 @@ import { CssBaseline } from '@material-ui/core';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-      {/* apply css for comfortable with multiple browser */}
+      <ConnectedRouter history={history}>
         <CssBaseline /> 
         <App />
-      </BrowserRouter>
+      </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
