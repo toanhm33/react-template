@@ -20,7 +20,7 @@ function App() {
           <AdminLayout />
         </PrivateRoute>
         <Route path="">
-          <NotFound/>
+          <LoginPage/>
         </Route>
       </Switch>
     </>

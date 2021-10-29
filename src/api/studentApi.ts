@@ -2,11 +2,9 @@ import { City, ListParams, Student, ListResponse } from 'models';
 import axiosClient from "./axiosClient";
 
 const studentApi = {
-  getAll(params: ListParams): Promise<ListResponse<Student>> {
+  getAll(): Promise<ListResponse<Student>> {
     const url = '/students';
-    return axiosClient.get(url, {
-      params
-    });
+    return axiosClient.get(url);
   },
 
   getById(id: string): Promise<Student> {

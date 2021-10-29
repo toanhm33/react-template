@@ -260,5 +260,9 @@
   ],
   "profile": {
     "name": "Po"
+  },
+  "users": {
+    "name": "drogon",
+    "password": "123456"
   }
 }

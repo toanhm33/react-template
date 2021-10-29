@@ -24,7 +24,7 @@ export function Header () {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            student management
+            Management
           </Typography>
           <Button color="inherit" onClick={handleLogoutClick}>Logout</Button>
         </Toolbar>

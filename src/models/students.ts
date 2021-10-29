@@ -1,10 +1,10 @@
 export interface Student {
-  id?: string;
-  name: string;
   age: number;
-  mark: number;
-  gender: 'male' | 'female';
   city: string;
   createdAt?: number;
+  gender: 'male' | 'female';
+  id?: string;
+  mark: number;
+  name: string;
   updatedAt?: number;
 }

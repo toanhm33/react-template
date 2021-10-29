@@ -24,7 +24,7 @@ function* handleLogin(payload: LoginPayload) {
 function* handleLogout() {
   console.log('handle logout');
   localStorage.removeItem('access_token');
-  yield put(push('/login'));
+  yield put(push(''));
   // redirect to login page
 }
 
