@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'Code', width: 180 },
@@ -29,6 +30,12 @@ const columns: GridColDef[] = [
     type: 'number',
     width: 180,
     editable: true,
+  },
+  {
+    field: 'action',
+    headerName: 'Action',
+    type: 'string',
+    width: 200,
   }
 ];
 
@@ -43,13 +50,14 @@ interface StudentProps {
   updatedAt?: number;
 }
 
-export default function DataTable(item: any) {
-  console.log(item);
+export default function DataTable() {
+  const listUser : any = useAppSelector(state => state.student.listUser);
+  console.log('listUser', listUser.length);
   
   return (
     <div style={{ height: '80vh', width: '100%' }}>
       <DataGrid
-        rows={item?.name?.length>0 ? item.name : []}
+        rows={listUser?.length > 0 ? listUser : []}
         columns={columns}
         pageSize={10}
         checkboxSelection

@@ -5,11 +5,13 @@ import counterReducer from '../features/counter/counterSlice';
 import createSagaMiddleware from '@redux-saga/core';
 import rootSaga from './rootSaga';
 import { history } from 'utils';
+import studentReducer from 'features/student/studentSlice';
 
 const rootReducer = combineReducers({
   router: connectRouter(history),
   counter: counterReducer,
-  auth: authReducer
+  auth: authReducer,
+  student: studentReducer
 });
 
 const sagaMiddleware = createSagaMiddleware()
