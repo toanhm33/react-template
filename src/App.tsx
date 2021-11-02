@@ -5,21 +5,33 @@ import LoginPage from 'features/auth/pages/LoginPage';
 import { AdminLayout } from 'components/Layout';
 import { NotFound, PrivateRoute } from 'components/Common';
 import { Button } from '@material-ui/core';
-import { useAppDispatch } from 'app/hooks';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { authActions } from 'features/auth/authSlice';
+import { useHistory } from 'react-router'
 
 function App() {
+  const isLogging = useAppSelector(state => state.auth.logging);
+  const history = useHistory();
+  const pathname = history.location.pathname;
   
-  return (
+  useEffect(() => {
+    // if(isLogging && (history.location.pathname == '/' || history.location.pathname == '/login')){
+    //   console.log('aaa');
+      
+    //   history.push('/admin')
+    // } 
+  }, [])
+  
+  return (  
     <>
       <Switch>
-        <Route path="/login">
+        <Route path='/login'>
           <LoginPage/>
         </Route>
         <PrivateRoute path="/admin">
           <AdminLayout />
         </PrivateRoute>
-        <Route path="">
+        <Route path={''}>
           <LoginPage/>
         </Route>
       </Switch>

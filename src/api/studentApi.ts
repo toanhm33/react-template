@@ -12,7 +12,7 @@ const studentApi = {
     return axiosClient.post(url);
   },
 
-  add(data: Student): Promise<Student> {
+  add(data: any): Promise<Student> {
     const url = '/students';
     return axiosClient.post(url, data);
   },

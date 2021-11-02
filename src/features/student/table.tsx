@@ -53,7 +53,13 @@ interface StudentProps {
 export default function DataTable() {
   const listUser : any = useAppSelector(state => state.student.listUser);
   console.log('listUser', listUser.length);
-  
+  const test = listUser.find((o: any) => {console.log(o)})  
+  function handleOnClick(rowData: any) {
+    // const rowId = listUser.find((o: any) => {o.id === rowData.id});
+    // console.log(rowId);
+    
+  }
+
   return (
     <div style={{ height: '80vh', width: '100%' }}>
       <DataGrid
@@ -62,6 +68,7 @@ export default function DataTable() {
         pageSize={10}
         checkboxSelection
         disableSelectionOnClick
+        onRowClick={(param) => handleOnClick(param.row)}
       />
     </div>
   );
