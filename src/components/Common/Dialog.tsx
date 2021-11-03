@@ -19,7 +19,8 @@ const AlertDialog: React.FC<Props> = ({open, handleClose, handleSubmit, title, d
     handleSubmit();
     handleClose();
   }
-
+  console.log(open);
+  
   return (
     <div>
       <Dialog

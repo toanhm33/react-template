@@ -1,35 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, CircularProgress, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
 import studentApi from 'api/studentApi';
-import DataTable from './table';
+import StudentTable from './components/table';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { studentActions } from './studentSlice';
+import { selectStudentList, studentActions } from './studentSlice';
 import Modal from '@material-ui/core/Modal';
+// import Pagination  from '@material-ui/core/Pagination';
 import AlertDialog from 'components/Common/Dialog';
 
-// interface Student {
-//   id?: string;
-//   name: string;
-//   age: number;
-//   mark: number;
-//   gender: 'male' | 'female';
-//   city: string;
-//   createdAt?: number;
-//   updatedAt?: number;
-// }
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
@@ -67,7 +45,7 @@ export const  Student:React.FC  = () => {
   const classes = useStyles();
   const dispatch = useAppDispatch()
   const [open, setOpen] = React.useState(false);
-
+  const studentList = useAppSelector(selectStudentList);
   const handleOpen = () => {
     setOpen(true);
   };
@@ -107,11 +85,10 @@ export const  Student:React.FC  = () => {
       }
     }))
   }
-  const getUser = async () => {
-    const res = await studentApi.getAll();
-    dispatch(studentActions.fetch({res}))
-    // setListUser(res.data)
-  }
+  // const getUser = async () => {
+  //   const res = await studentApi.getAll();
+  //   dispatch(studentActions.fetch({res}))
+  // }
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -189,8 +166,13 @@ export const  Student:React.FC  = () => {
   );
 
   useEffect(() => {
-    getUser();
-  }, [])
+    dispatch(
+      studentActions.fetchStudentList({
+        _page: 1,
+        _limit: 15
+      })
+    )
+  }, [dispatch])
 
   return (
     <div>
@@ -200,24 +182,10 @@ export const  Student:React.FC  = () => {
           <Button className={classes.buttonAction} onClick={handleOpen} variant="contained" color="primary">
             Add new
           </Button>
-          <Button className={classes.buttonAction} onClick={handleOpen} variant="contained" color="primary">
-            Edit
-          </Button>
-          <Button className={classes.buttonAction} onClick={handleOpen} variant="contained" color="secondary">
-            Delete
-          </Button>
         </div>
-        <DataTable/>
+        <StudentTable studentList={studentList}/>
       </Box>
       <AlertDialog open={open} handleSubmit={handleSubmit} handleClose={handleClose} title="Add Student" dialogContent={dialogContent}/>
-      {/* <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-         {body}
-      </Modal> */}
     </div>
   );
 }
