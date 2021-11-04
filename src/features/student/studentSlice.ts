@@ -5,7 +5,7 @@ import { ListParams, Student, ListResponse, PaginationParams } from 'models';
 export interface StudentState {
   loading: boolean;
   list: Student[];
-  filter?: ListParams;
+  filter: ListParams;
   pagination?: PaginationParams;
 }
 
@@ -14,11 +14,11 @@ const initialState: StudentState = {
   list: [],
   filter: {
     _page: 1,
-    _limit: 15
+    _limit: 115
   },
   pagination: {
     _page: 1,
-    _limit: 15,
+    _limit: 115,
     _totalRows: 15
   }
 }
@@ -30,8 +30,8 @@ const studentSlice = createSlice({
     fetchStudentList(state, action: PayloadAction<ListParams>) {
       state.loading = true;
     },
-    fetchStudentListListSuccess(state, action: PayloadAction<ListResponse<Student>>) {
-      state.list = action.payload.data;
+    fetchStudentListSuccess(state, action: PayloadAction<ListResponse<Student>>) {
+      state.list = action.payload.data.reverse();
       state.pagination = action.payload.pagination;
       state.loading = false;
     },

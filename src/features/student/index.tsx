@@ -3,10 +3,10 @@ import { Box, Button, CircularProgress, makeStyles, Paper, TextField, Typography
 import studentApi from 'api/studentApi';
 import StudentTable from './components/table';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { selectStudentList, studentActions } from './studentSlice';
 import Modal from '@material-ui/core/Modal';
 // import Pagination  from '@material-ui/core/Pagination';
 import AlertDialog from 'components/Common/Dialog';
+import { selectStudentFilter, selectStudentList, studentActions } from './studentSlice';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,6 +46,9 @@ export const  Student:React.FC  = () => {
   const dispatch = useAppDispatch()
   const [open, setOpen] = React.useState(false);
   const studentList = useAppSelector(selectStudentList);
+  const filter = useAppSelector(selectStudentFilter)
+  console.log(studentList);
+  
   const handleOpen = () => {
     setOpen(true);
   };
@@ -92,12 +95,14 @@ export const  Student:React.FC  = () => {
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    formData.append('name', formState.values.name);
-    formData.append('city', formState.values.city);
-    formData.append('age', formState.values.age);
-    formData.append('mark', formState.values.mark);
-    formData.append('gender', formState.values.gender);
-    await studentApi.add(formData);
+    // formData.append('name', formState.values.name);
+    // formData.append('city', formState.values.city);
+    // formData.append('age', formState.values.age);
+    // formData.append('mark', formState.values.mark);
+    // formData.append('gender', formState.values.gender);
+    await studentApi.add(formState.values);
+    const newFilter = {...filter}
+    dispatch(studentActions.setFilter(newFilter));
   }
 
   const dialogContent = (
@@ -169,7 +174,7 @@ export const  Student:React.FC  = () => {
     dispatch(
       studentActions.fetchStudentList({
         _page: 1,
-        _limit: 15
+        _limit: 1115
       })
     )
   }, [dispatch])

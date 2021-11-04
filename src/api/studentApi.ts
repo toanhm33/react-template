@@ -19,12 +19,13 @@ const studentApi = {
   },
 
   add(data: any): Promise<Student> {
-    const url = '/students';
+    const url = `/students`;
     return axiosClient.post(url, data);
   },
 
-  update(data: Student): Promise<Student> {
-    const url = './students';
+  update(data: any): Promise<Student> {
+    console.log(data);
+    const url = `/students/${data.id}`;
     return axiosClient.patch(url, data);
   },
 
