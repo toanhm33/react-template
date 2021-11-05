@@ -11,15 +11,6 @@ import { useHistory } from 'react-router'
 
 function App() {
   const isLogging = useAppSelector(state => state.auth.logging);
-  const history = useHistory();
-  const pathname = history.location.pathname;
-  useEffect(() => {
-    // if(isLogging && (history.location.pathname == '/' || history.location.pathname == '/login')){
-    //   console.log('aaa');
-      
-    //   history.push('/admin')
-    // } 
-  }, [])
   
   return (  
     <>
