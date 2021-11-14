@@ -1,11 +1,7 @@
 import { City, ListParams, Student, ListResponse } from 'models';
 import axiosClient from "./axiosClient";
 
-const studentApi = {
-  // getAll(): Promise<ListResponse<Student>> {
-  //   const url = '/students';
-  //   return axiosClient.get(url);
-  // },
+const studentApi2 = {
   getAll(params: ListParams): Promise<ListResponse<Student>> {
     const url = '/students';
     return axiosClient.get(url, {
@@ -35,4 +31,13 @@ const studentApi = {
   }
 }
 
+const findAll = async (params: ListParams) => {
+  const response = await axiosClient.get<Student[]>("/students", {params});
+  return response.data;
+}
+
+
+const studentApi = {
+  findAll,
+}
 export default studentApi
