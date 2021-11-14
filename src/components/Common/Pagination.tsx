@@ -17,7 +17,6 @@ const Pagination: React.FC<Props> = (
     currentPage,
   }
 ) => {
-  console.log(totalPosts, postsPerPage);
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
