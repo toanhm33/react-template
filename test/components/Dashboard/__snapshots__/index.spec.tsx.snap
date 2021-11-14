@@ -1,0 +1,430 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Component Renders without crashing 1`] = `
+<div>
+  show loading
+  <div
+    className=" bg-gray-200"
+  >
+    <div
+      className="container flex justify-center items-center"
+    >
+      <div
+        className="relative"
+      >
+        <input
+          className="h-14 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
+          placeholder="Search anything..."
+          type="text"
+        />
+        <div
+          className="absolute top-2 right-2"
+        >
+           
+          <button
+            className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600"
+          >
+            Search
+          </button>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="flex flex-col"
+  >
+    <div
+      className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8"
+    >
+      <div
+        className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+      >
+        <div
+          className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+        >
+          <table
+            className="min-w-full divide-y divide-gray-200"
+          >
+            <thead
+              className="bg-gray-50"
+            >
+              <tr>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Name
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Title
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Status
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Role
+                </th>
+                <th
+                  className="relative px-6 py-3"
+                  scope="col"
+                >
+                  <span
+                    className="sr-only"
+                  >
+                    Edit
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              className="bg-white divide-y divide-gray-200"
+            >
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="py-2"
+  >
+    <div>
+      <p
+        className="text-sm text-gray-700"
+      >
+        Showing
+        <span
+          className="font-medium"
+        >
+           
+          0
+           
+        </span>
+        to
+        <span
+          className="font-medium"
+        >
+           
+          10
+           
+        </span>
+        of
+        <span
+          className="font-medium"
+        >
+           
+          0
+           
+        </span>
+        results
+      </p>
+    </div>
+    <nav
+      className="block"
+    >
+      <ul
+        className="flex pl-0 rounded list-none flex-wrap"
+      >
+        <li />
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`Dashboard component should render component properly 1`] = `
+<div>
+  
+  <div
+    className=" bg-gray-200"
+  >
+    <div
+      className="container flex justify-center items-center"
+    >
+      <div
+        className="relative"
+      >
+        <input
+          className="h-14 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
+          placeholder="Search anything..."
+          type="text"
+        />
+        <div
+          className="absolute top-2 right-2"
+        >
+           
+          <button
+            className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600"
+          >
+            Search
+          </button>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="flex flex-col"
+  >
+    <div
+      className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8"
+    >
+      <div
+        className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+      >
+        <div
+          className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+        >
+          <table
+            className="min-w-full divide-y divide-gray-200"
+          >
+            <thead
+              className="bg-gray-50"
+            >
+              <tr>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Name
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Title
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Status
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Role
+                </th>
+                <th
+                  className="relative px-6 py-3"
+                  scope="col"
+                >
+                  <span
+                    className="sr-only"
+                  >
+                    Edit
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              className="bg-white divide-y divide-gray-200"
+            >
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="py-2"
+  >
+    <div>
+      <p
+        className="text-sm text-gray-700"
+      >
+        Showing
+        <span
+          className="font-medium"
+        >
+           
+          0
+           
+        </span>
+        to
+        <span
+          className="font-medium"
+        >
+           
+          10
+           
+        </span>
+        of
+        <span
+          className="font-medium"
+        >
+           
+          0
+           
+        </span>
+        results
+      </p>
+    </div>
+    <nav
+      className="block"
+    >
+      <ul
+        className="flex pl-0 rounded list-none flex-wrap"
+      >
+        <li />
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`Dashboard demo 2 Renders without crashing 1`] = `
+<div>
+  show loading
+  <div
+    className=" bg-gray-200"
+  >
+    <div
+      className="container flex justify-center items-center"
+    >
+      <div
+        className="relative"
+      >
+        <input
+          className="h-14 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
+          placeholder="Search anything..."
+          type="text"
+        />
+        <div
+          className="absolute top-2 right-2"
+        >
+           
+          <button
+            className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600"
+          >
+            Search
+          </button>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="flex flex-col"
+  >
+    <div
+      className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8"
+    >
+      <div
+        className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+      >
+        <div
+          className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+        >
+          <table
+            className="min-w-full divide-y divide-gray-200"
+          >
+            <thead
+              className="bg-gray-50"
+            >
+              <tr>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Name
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Title
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Status
+                </th>
+                <th
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  scope="col"
+                >
+                  Role
+                </th>
+                <th
+                  className="relative px-6 py-3"
+                  scope="col"
+                >
+                  <span
+                    className="sr-only"
+                  >
+                    Edit
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              className="bg-white divide-y divide-gray-200"
+            >
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="py-2"
+  >
+    <div>
+      <p
+        className="text-sm text-gray-700"
+      >
+        Showing
+        <span
+          className="font-medium"
+        >
+           
+          0
+           
+        </span>
+        to
+        <span
+          className="font-medium"
+        >
+           
+          10
+           
+        </span>
+        of
+        <span
+          className="font-medium"
+        >
+           
+          0
+           
+        </span>
+        results
+      </p>
+    </div>
+    <nav
+      className="block"
+    >
+      <ul
+        className="flex pl-0 rounded list-none flex-wrap"
+      >
+        <li />
+      </ul>
+    </nav>
+  </div>
+</div>
+`;

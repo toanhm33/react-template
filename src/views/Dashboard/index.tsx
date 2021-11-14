@@ -5,6 +5,7 @@ import studentApi from 'api/studentApi';
 import { Student } from 'models';
 import { useEffect, useState } from 'react';
 import Pagination from 'components/Common/Pagination';
+import { useStudents } from 'hooks/useStudents';
 
 export interface DashboardProps {
 }
@@ -18,30 +19,13 @@ export function Dashboard (props: DashboardProps) {
     return JSON.stringify(res, null, 2);
   };
 
-  const { isLoading: isLoadingTutorials, refetch: getAllTutorials } = useQuery<Student[], Error>(
-    "query-tutorials",
-    async () => {
-      return await studentApi.findAll({
-        _page: getPageNumber,
-        _limit: 10,
-      });
-    },
-    {
-      enabled: false,
-      onSuccess: (res) => {
-        console.log('isLoadingTutorials2', isLoadingTutorials);
-        setGetResult(res);
-      },
-      onError: (err: any) => {
-        setGetResult(fortmatResponse(err.response?.data || err));
-      },
-    }
-  );
+  const { isLoading: isLoadingTutorials, refetch: getAllTutorials } = useStudents(getPageNumber, setGetResult, (err: any) => {
+    fortmatResponse(err.response?.data || err)
+  });
 
   useEffect(() => {
     getAllData();
   }, [isLoadingTutorials, getPageNumber]);
-  console.log('getResult', getResult);
   
   function getAllData() {
     try {
@@ -50,8 +34,6 @@ export function Dashboard (props: DashboardProps) {
       setGetResult(fortmatResponse(err));
     }
   }
-  console.log(getResult);
-
 
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
