@@ -1,6 +1,5 @@
 import { Student } from "models"
 import React, { useState } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 
 interface Props {
     postsPerPage: number;
@@ -17,14 +16,12 @@ const Pagination: React.FC<Props> = (
     currentPage,
   }
 ) => {
-  console.log(totalPosts, postsPerPage);
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
   return (
-    <div className='py-2'>
+    <div className='my-4 flex flex-col items-end '>
       <div>
         <p className='text-sm text-gray-700'>
           Showing
@@ -39,7 +36,7 @@ const Pagination: React.FC<Props> = (
           results
         </p>
       </div>
-      <nav className='block'>
+      <nav className='block mt-2'>
         <ul className='flex pl-0 rounded list-none flex-wrap'>
           <li>
             {pageNumbers.map((number) => (

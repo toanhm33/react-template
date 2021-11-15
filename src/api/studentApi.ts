@@ -32,12 +32,41 @@ const studentApi2 = {
 }
 
 const findAll = async (params: ListParams) => {
-  const response = await axiosClient.get<Student[]>("/students", {params});
+  const response = await axiosClient.get<Student[]>("/students", {params});  
   return response.data;
 }
 
+const findByName = async (title: string) => {
+  const response = await axiosClient.get<Student[]>(`/students/search?name=${title}`);
+  return response.data;
+}
+
+const filter = async (filter: string) => {
+  const response = await axiosClient.get<Student[]>(`/students?filter=${filter}`);
+  return response.data;
+}
+
+const create = async ({  name, age, city, gender, mark }: Student) => {
+  const response = await axiosClient.post<any>("/students", {  name, age, city, gender, mark });
+  return response.data;
+}
+
+const update = async (id: any, { name, age, city, gender, mark}: Student) => {
+  const response = await axiosClient.put<any>(`/students/${id}`, {  name, age, city, gender, mark });
+  return response.data;
+}
+
+const deleteById = async (id: any) => {
+  const response = await axiosClient.delete<any>(`/students/${id}`);
+  return response.data;
+}
+
+const getById = async (id: any) => {
+  const response = await axiosClient.get<any>(`/students/${id}`);
+  return response.data;
+}
 
 const studentApi = {
-  findAll,
+  findAll, findByName, filter, create, update, deleteById, getById
 }
 export default studentApi

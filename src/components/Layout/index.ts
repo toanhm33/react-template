@@ -1,1 +1,4 @@
-export * from './Admin';
+
+export * from './Admin'
+export * from './Error'
+
