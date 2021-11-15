@@ -23,6 +23,8 @@ export function RadioGroupField ({name, control, label, disable, options}: Radio
     name,
     control,
   })
+  console.log( value);
+  
   return (
     <div className="md:flex md:items-center mb-6">
       <div className="mt-2">
@@ -30,7 +32,7 @@ export function RadioGroupField ({name, control, label, disable, options}: Radio
           options.map(option => (
             <div>
               <label htmlFor={option.label} key={option.value} className="inline-flex items-center">
-                <input type="radio" onChange={onChange} onBlur={onBlur} className="form-radio" name={option.label} value={option.value} />
+                <input checked={option.label == value ? true : false} type="radio" onChange={onChange} onBlur={onBlur} className="form-radio" name={option.label} value={option.value} />
                 <span className="ml-2">{option.label}</span>
               </label>
             </div>

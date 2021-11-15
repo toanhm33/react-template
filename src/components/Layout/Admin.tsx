@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Footer, Header } from 'components/Common';
-import Sidebar from 'components/Common/Sidebar';
 import { Suspense } from 'react';
 import { renderRoutes } from 'react-router-config';
 

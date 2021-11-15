@@ -1,4 +1,6 @@
+import Switch from 'components/Common/Switch';
 import { InputField, RadioGroupField } from 'components/FormField';
+import SelectOption from 'components/FormField/SelectOption';
 import { Student } from 'models';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
@@ -12,27 +14,20 @@ export default function StudentForm ({ inititalValues, onSubmit }: StudentFormPr
   const { control, handleSubmit } = useForm<Student>({
     defaultValues: inititalValues 
   })
-
+  
   const handleFormSubmit = (formValues: Student) => {
     console.log(formValues);
   }
   return (
     <div>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <InputField name="name" control={control} label="Full name"/>
-        <InputField name="age" control={control} label="Age"/>
-        <InputField name="mark" control={control} label="Mark"/>
-        <InputField name="city" control={control} label="City"/>
-        <RadioGroupField name='gender' control={control} label='gender' disable={false} 
-          options={
-            [
-              {label: 'Male', value: 'male'},
-              {label: 'Female', value: 'female'},
-            ]
-          }
-        />
-        <div>
-          <button className="btn btn-blue">Save</button>
+        <div className="flex flex-wrap">
+          <InputField name="name" control={control} label="Full name"/>
+          <InputField name="age" control={control} label="Age"/>
+          <InputField name="mark" control={control} label="Mark"/>
+          <InputField name="city" control={control} label="City"/>
+          <Switch /> 
+          <SelectOption />
         </div>
       </form>
     </div>

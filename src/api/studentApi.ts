@@ -37,12 +37,12 @@ const findAll = async (params: ListParams) => {
 }
 
 const findByName = async (title: string) => {
-  const response = await axiosClient.get<Student[]>(`/students/search?name=${title}`);
+  const response = await axiosClient.get<Student[]>(`/students?name_like=${title}`);
   return response.data;
 }
 
 const filter = async (filter: string) => {
-  const response = await axiosClient.get<Student[]>(`/students?filter=${filter}`);
+  const response = await axiosClient.get<Student[]>(`/students?name_like=${filter}`);
   return response.data;
 }
 

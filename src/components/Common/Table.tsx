@@ -1,5 +1,6 @@
 import { Student } from "models"
 import React, { useState } from "react";
+import Modal from "./Modal";
 import Pagination from "./Pagination";
 
 interface Props {
@@ -9,39 +10,45 @@ interface Props {
 
 const Table: React.FC<Props> = ({listStudent, onEdit}) => {
 
+    const handleDelete = () => {
+    }
+    const handleClose = () => {
+    }
+    const handleOpen = () => {
+    }
     return (
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-y-scroll sm:rounded-lg ">
+            <div className="shadow sm:rounded-lg ">
               <table className="min-w-full divide-y divide-gray-20">
-                <thead className="bg-white">
+                <thead className="shadow-lg bg-gray-100">
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs  text-gray-500 uppercase tracking-wider"
+                      className="thead"
                     >
                       Name
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs  text-gray-500 uppercase tracking-wider"
+                      className="thead"
                     >
                       Discription
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs  text-gray-500 uppercase tracking-wider"
+                      className="thead"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs  text-gray-500 uppercase tracking-wider"
+                      className="thead"
                     >
                       Role
                     </th>
-                    <th scope="col" className="relative text-gray-500 px-6 py-3">
+                    <th scope="col" className="thead">
                       Action
                     </th>
                   </tr>
@@ -49,25 +56,21 @@ const Table: React.FC<Props> = ({listStudent, onEdit}) => {
                 <tbody className="bg-white divide-y divide-gray-20">
                   { listStudent !== null ? listStudent.data?.map((student: Student) => (
                     <tr key={student.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          <div className="flex-shrink-0 h-10 w-10">
-                            {student.name}
-                          </div>
-                        </div>
+                      <td className="td">
+                        {student.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="td">
                         {student.gender}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="td">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           Active
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="td">
                         vv
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm ">
+                      <td className="td">
                         <button 
                           onClick={() => {
                             onEdit(student)
@@ -86,6 +89,15 @@ const Table: React.FC<Props> = ({listStudent, onEdit}) => {
             </div>
           </div>
         </div>
+        <Modal 
+          action="delete" 
+          title="Delete Student" 
+          description="Do you really want to delete your account? This process cannot be undone" 
+          handleOpen={handleOpen}
+          handleAccept={handleDelete}    
+          handleClose={handleClose}
+          open={true}                      
+        />
       </div>
     )
   }
