@@ -6,8 +6,6 @@
     "@craco/craco": "^5.9.0",
     "@heroicons/react": "^1.0.5",
     "@hookform/resolvers": "^2.8.3",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^27.0.2",
     "@types/node": "^12.0.0",
@@ -53,8 +51,11 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^9.5.0",
     "@types/react-router-config": "^5.0.3",
     "autoprefixer": "^9.8.8",
+    "eslint": "^7.32.0",
     "nodemon": "^2.0.13",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"

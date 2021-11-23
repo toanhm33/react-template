@@ -6,11 +6,12 @@ interface Props {
   label: string;
   items: any;
   control: Control<any>;
+  onChange?: any;
 }
 
-export default function SelectOption({name, label, control, items}: Props): ReactElement {
+export default function SelectOption({name, onChange, label, control, items}: Props): ReactElement {
   const {
-    field: { value, onChange, onBlur, ref },
+    field: { value, onBlur, ref },
     fieldState: { invalid, error},
   } = useController({
     name,

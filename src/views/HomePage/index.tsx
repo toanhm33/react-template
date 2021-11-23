@@ -1,15 +1,15 @@
 import Table from 'views/HomePage/components/Table';
-import { useQuery } from 'react-query';
-import studentApi from 'apis/studentApi';
 import { Student } from 'models';
-import { ChangeEvent, useContext, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useDebounce from 'hooks/useDebounce';
 import { useStudents } from 'hooks/useStudents';
-import { HomeContext, HomeContextProvider } from 'views/HomePage/HomeContext';
-import useDeleteStudents from 'hooks/useDeleteStudents';
+import { HomeContextProvider } from 'views/HomePage/HomeContext';
+import { useDeleteStudents } from 'hooks/useDeleteStudents';
 import { toast } from 'react-toastify';
 import { InputSearch } from 'components/FormField/InputSearch';
+import SelectOption from 'components/FormField/SelectOption';
+import { useForm } from 'react-hook-form';
 
 export interface HomePageProps {
 }
@@ -24,6 +24,10 @@ export function HomePage (props: HomePageProps) {
   const isDeleteBook = useMemo(() => {
     return !Boolean(listStudentIdDelete.length);
   }, [listStudentIdDelete]);
+  const { control, handleSubmit, register } = useForm<Student>({
+    defaultValues: {}
+  })
+  console.log('control', register);
   
   const handleAddStudent = () => {
     history.push('/student/add');
@@ -31,12 +35,21 @@ export function HomePage (props: HomePageProps) {
   const handleEditStudent = (student: Student) => {    
     history.push(`/student/${student.id}`);
   }
-
+  const labels = [
+    {id: 0, name: 'active', label: 'active', value: true},
+    {id: 1, name: 'inactive', label: 'inactive', value: false}
+  ]
   function handleSearchChange(event: ChangeEvent<HTMLInputElement>) {
+  
     const { value } = event.target;
     setSearch((pre: any) => ({ ...pre, name: value }));
   }
 
+  function handleChangeStatus(event: ChangeEvent<HTMLSelectElement>) {
+    const { value } = event.target;
+    setSearch((pre: any) => ({ ...pre, active: value }));
+  }
+  
   async function handleDeleteStudent() {
     try {
       await mutateDeleteStudent(listStudentIdDelete);
@@ -44,8 +57,12 @@ export function HomePage (props: HomePageProps) {
       setListStudentIdDelete([]);
     } catch (error) {}
   }
+  function handleSelectStatus(event: ChangeEvent<HTMLSelectElement>) {
+    const { value } = event.target;
+    setSearch((pre: any) => ({ ...pre, status: value }));
+  }
   if (error) {
-    return <div>Something wrong!!</div>;
+    return <div>Something wrong.</div>;
   }
   return (
     <HomeContextProvider>
@@ -61,6 +78,7 @@ export function HomePage (props: HomePageProps) {
             </svg>
           </button>
         </div>
+        <SelectOption name="status" control={control} onChange={handleSelectStatus} label="Status" items={labels}/>
         <div>
           <button onClick={handleDeleteStudent} disabled={isDeleteBook} className="btn mr-4 btn-primary ">Delete</button>
           <button onClick={handleAddStudent} className="btn btn-blue ">Add new student</button>

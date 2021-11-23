@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 import { Control, useController } from 'react-hook-form'
 
 interface Props {
@@ -15,6 +15,9 @@ export default function Switch({name, control, label}: Props): ReactElement {
     name,
     control,
   })
+  console.log(value);
+  
+  const [isChecked, setChecked] = useState(value ?? true);
   
   return (
     <div className="md:flex lg:w-3/6 md:w-full md:items-center mb-6">
@@ -38,6 +41,7 @@ export default function Switch({name, control, label}: Props): ReactElement {
           type="checkbox"
           name="toggle"
           id="toggle"
+          defaultChecked={isChecked}
           onChange={onChange}
           className="
             toggle-checkbox

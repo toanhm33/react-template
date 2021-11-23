@@ -1,6 +1,6 @@
 import Modal from "components/Common/Modal";
 import { Checkbox } from "components/FormField/Checkbox";
-import UseDeleteStudents from "hooks/useDeleteStudents";
+import { useDeleteStudents } from "hooks/useDeleteStudents";
 import { Student } from "models"
 import React, { ChangeEvent, useState } from "react";
 import { StudentItems } from "./StudentItems";
@@ -26,7 +26,7 @@ const Table: React.FC<Props> = ({listStudent,  listStudentIdDelete,
   const handleCheckbox = () => {
     setChecked(!checked)
   }
-  const { mutate: remove } = UseDeleteStudents()
+  const { mutate: remove } = useDeleteStudents()
   const handleDelete = async (e: any) => {
     await remove(student.id)
     handleClose();

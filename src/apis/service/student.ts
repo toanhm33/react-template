@@ -10,7 +10,7 @@ const findAll = async () => {
 }
 
 const getStudents = async (nameStudent: any): Promise<[]> => {
-  let queryString;
+  let queryString = '';
   if (nameStudent) {
     queryString = stringify(nameStudent);
   }

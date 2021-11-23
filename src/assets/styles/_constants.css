@@ -1,9 +1,3 @@
-@tailwind base;
-
-@tailwind components;
-
-@tailwind utilities;
-
 @layer components {
   * {
     @apply box-border;
@@ -29,7 +23,7 @@
     @apply px-6 py-3 text-center text-xs  text-gray-500 uppercase tracking-wider;
   }
   .td {
-    @apply truncate sm:max-w-sm max-w-md overflow-hidden overflow-ellipsis px-6 py-4 whitespace-nowrap text-center text-gray-500
+    @apply truncate overflow-hidden verflow-ellipsis px-6 py-4 whitespace-nowrap text-center text-gray-500
   }
   .tr {
     @apply cursor-pointer;
@@ -48,8 +42,5 @@
   }
   .input {
     @apply px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200;
-  }
-  .header-item {
-    @apply flex flex-col justify-center	no-underline text-gray-500 border-b-2 border-transparent uppercase tracking-wide font-bold text-xs py-3 mr-8;
   }
 }

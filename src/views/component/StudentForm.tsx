@@ -12,10 +12,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useCities } from 'hooks/useStudents';
 import { TextAreaField } from 'components/FormField/TextAreaField';
+import { toast } from 'react-toastify';
 
 const schema = yup.object({
   name: yup.string().required('name is require'),
-  age: yup.string().required('age is require'),
+  // age: yup.string().required('age is require'),
   // mark: yup.number().required(),
 }).required();
 export interface StudentFormProps {
@@ -30,16 +31,20 @@ export default function StudentForm ({ isAdd, inititalValues, onSubmit }: Studen
     defaultValues: inititalValues,
     resolver: yupResolver(schema)
   })
-  const { mutate: update } = useUpdateStudents()
-  const { mutate: create } = useAddStudents();
+  const { mutate: update, isLoading: isLoadingEdit } = useUpdateStudents()
+  const { mutate: create, isLoading: isLoadingCreate } = useAddStudents();
 
   const handleFormSubmit = async (formValues: any) => {
     if(isAdd) {
       await create(formValues);
+      await toast.success('create success')
     } else {
       await update(formValues)
+      await toast.success('update success')
     }
-    await history.push('/')
+    setTimeout(() => {
+      history.push('/')
+    }, 800);
   }
   
   const onHandleBack = () => {
@@ -52,12 +57,16 @@ export default function StudentForm ({ isAdd, inititalValues, onSubmit }: Studen
   }, [isFetchCity])
   return (
     <div>
+      { isLoadingCreate || isLoadingEdit ? 
+        <div
+          className="spinner"
+        ></div> : ''
+      }
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="flex flex-wrap">
           <InputField name="name" control={control} label="Full name"/>
-          <InputField name="age" control={control} label="Age"/>
-          <TextAreaField  name="mark" control={control} label="Mark"/>
           <Switch name="status" control={control} label="Status" /> 
+          <TextAreaField  name="description" control={control} label="Description"/>
           <SelectOption name="city" control={control} label="City" items={dataFetchAll}/>
           <div className="flex w-full mt-8 justify-end">
             <button type="submit" className="btn btn-blue mr-4">{isAdd ? 'Create' : 'Update'}</button>
