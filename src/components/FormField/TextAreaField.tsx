@@ -1,13 +1,13 @@
 import { Control } from 'react-hook-form'
 import { useController } from 'react-hook-form'
 
-export interface InputFieldProps {
+export interface TextAreaFieldProps {
   name: string;
   control: Control<any>;
   label?: string;
 }
 
-export function InputField ({name, control, label}: InputFieldProps) {
+export function TextAreaField ({name, control, label}: TextAreaFieldProps) {
   const {
     field: { value, onChange, onBlur, ref },
     fieldState: { invalid, error},
@@ -24,15 +24,14 @@ export function InputField ({name, control, label}: InputFieldProps) {
         </label>
       </div>
       <div className="md:w-2/3">
-        <input 
+        <textarea 
           value={value}
           name={name}
           onChange={onChange}
           onBlur={onBlur}
           className="input w-full" 
           id="inline-full-name" 
-          type="text"
-          />
+        ></textarea>
       </div>
       <span className="absolute text-red-500 right-0 bottom-0">{error?.message}</span>
     </div>

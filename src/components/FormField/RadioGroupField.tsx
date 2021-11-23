@@ -23,7 +23,6 @@ export function RadioGroupField ({name, control, label, disable, options}: Radio
     name,
     control,
   })
-  console.log( value);
   
   return (
     <div className="md:flex md:items-center mb-6">

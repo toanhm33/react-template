@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: 'http://js-post-api.herokuapp.com/api',
+  baseURL: 'https://6190d00d41928b001768fe61.mockapi.io/api/v1/',
   headers: {
     'Content-type': 'application/json'
   }

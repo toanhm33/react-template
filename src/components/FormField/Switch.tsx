@@ -1,14 +1,25 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
+import { Control, useController } from 'react-hook-form'
 
 interface Props {
-  
+  name: string;
+  control: Control<any>;
+  label?: string;
 }
 
-export default function Switch({}: Props): ReactElement {
+export default function Switch({name, control, label}: Props): ReactElement {
+  const {
+    field: { value, onChange, onBlur, ref },
+    fieldState: { invalid, error},
+  } = useController({
+    name,
+    control,
+  })
+  
   return (
     <div className="md:flex lg:w-3/6 md:w-full md:items-center mb-6">
       <div className="md:w-1/3 block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-        Status:
+        {label}
       </div>
       <div
         className="
@@ -27,6 +38,7 @@ export default function Switch({}: Props): ReactElement {
           type="checkbox"
           name="toggle"
           id="toggle"
+          onChange={onChange}
           className="
             toggle-checkbox
             absolute

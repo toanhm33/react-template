@@ -1,5 +1,4 @@
-import React, { lazy } from 'react';
-import { Redirect } from 'react-router-dom';
+import { lazy } from 'react';
 import Admin from './components/Layout/Admin';
 
 export default [
@@ -10,17 +9,17 @@ export default [
       {
         path: '/',
         exact: true,
-        component: lazy(() => import('./views/Dashboard/ListPage'))
+        component: lazy(() => import('./views/HomePage'))
       },
       {
         path: '/student/add ',
         exact: true,
-        component: lazy(() => import('./views/Dashboard/AddEditPage'))
+        component: lazy(() => import('./views/HomePage/components/AddEditPage'))
       },
       {
         path: '/student/:student_id',
         exact: true,
-        component: lazy(() => import('./views/Dashboard/AddEditPage'))
+        component: lazy(() => import('./views/HomePage/components/AddEditPage'))
       },
     ]
   }

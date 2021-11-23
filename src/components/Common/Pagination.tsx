@@ -1,5 +1,4 @@
-import { Student } from "models"
-import React, { useState } from "react";
+import React from "react";
 
 interface Props {
     postsPerPage: number;
@@ -39,7 +38,7 @@ const Pagination: React.FC<Props> = (
       <nav className='block mt-2'>
         <ul className='flex pl-0 rounded list-none flex-wrap'>
           <li>
-            {pageNumbers.map((number) => (
+            {pageNumbers.map((number, index) => (
               <a
                 onClick={() => {
                   paginate(number);
@@ -50,6 +49,7 @@ const Pagination: React.FC<Props> = (
                     ? "bg-blue border-blue-300 text-blue-500 hover:bg-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                     : "bg-white border-gray-300 text-gray-500 hover:bg-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 }
+                key={index}
               >
                 {number}
               </a>
