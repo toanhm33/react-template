@@ -9,11 +9,7 @@ export function mapData(res: AxiosResponse<TODO>) {
 }
 
 export function mapError(err: AxiosError<TODO>) {
-  if (
-    err &&
-    err.response &&
-    err.response.status === 1
-  ) {
+  if (err && err.response && err.response.status === 1) {
     localStorage.removeItem('data');
     window.location.href = '/auth';
   } else if (err && err.response) {

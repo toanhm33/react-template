@@ -1,40 +1,32 @@
 import { Student } from 'models';
 import React, { useState } from 'react';
 
-
-
 export interface IHomeContext {
   listStudent?: any;
-  student?: Student; 
+  student?: Student;
   pagination?: any;
   isLoading?: boolean;
-}    
+}
 
 const INITIAL_VALUE: IHomeContext = {
   listStudent: [],
   student: {
-    id: ''
+    id: '',
   },
   pagination: {
-    _totalRows: 0
+    _totalRows: 0,
   },
-  isLoading: false
-}
-
+  isLoading: false,
+};
 
 const HomeContext = React.createContext<[IHomeContext, any]>([INITIAL_VALUE, () => {}]);
 
 const HomeContextProvider = (props: any) => {
+  const [state, setState] = useState({ ...INITIAL_VALUE });
 
-  const [state, setState] = useState({...INITIAL_VALUE});  
-  
   const { children } = props;
 
-  return (
-    <HomeContext.Provider value={[state, setState]}>
-      {children}
-    </HomeContext.Provider>
-  );
+  return <HomeContext.Provider value={[state, setState]}>{children}</HomeContext.Provider>;
 };
 
 export { HomeContext, HomeContextProvider };

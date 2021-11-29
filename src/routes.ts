@@ -9,18 +9,18 @@ export default [
       {
         path: '/',
         exact: true,
-        component: lazy(() => import('./views/HomePage'))
+        component: lazy(() => import('./views/HomePage')),
       },
       {
         path: '/student/add ',
         exact: true,
-        component: lazy(() => import('./views/HomePage/components/AddEditPage'))
+        component: lazy(() => import('./views/HomePage/components/AddEditPage')),
       },
       {
         path: '/student/:student_id',
         exact: true,
-        component: lazy(() => import('./views/HomePage/components/AddEditPage'))
+        component: lazy(() => import('./views/HomePage/components/AddEditPage')),
       },
-    ]
-  }
+    ],
+  },
 ];

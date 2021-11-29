@@ -5,10 +5,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  return (  
+  return (
     <>
       <Switch>
-        <Route path=''>
+        <Route>
           {renderRoutes(routes)}
           <ToastContainer
             position="top-right"

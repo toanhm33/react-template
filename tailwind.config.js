@@ -3,9 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      animation: ['animate-spin']
+      animation: ['animate-spin'],
     },
   },
   variants: {},
   plugins: [],
-}
+};

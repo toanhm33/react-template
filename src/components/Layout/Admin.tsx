@@ -6,16 +6,14 @@ export interface AdminProps {
   route: any;
 }
 
-export default function Admin (props: AdminProps) {
+export default function Admin(props: AdminProps) {
   return (
     <div className="">
       <Header />
-      <div className="w-10/12 min-h-screen mx-auto py-28">
-        <Suspense fallback={null}>
-            {renderRoutes(props.route.routes)}
-        </Suspense>
+      <div className="lg:w-10/12 w-full min-h-screen mx-auto py-28">
+        <Suspense fallback={null}>{renderRoutes(props.route.routes)}</Suspense>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

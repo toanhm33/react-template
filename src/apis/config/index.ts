@@ -1,9 +1,4 @@
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  Canceler,
-} from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, Canceler } from 'axios';
 import { mapData, mapError } from './mapData';
 
 const { CancelToken } = axios;

@@ -6,7 +6,7 @@
     @apply w-auto inline-flex justify-center text-base font-medium rounded-sm shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-bold py-2 px-4 rounded sm:w-auto sm:text-sm;
   }
   .btn-default {
-    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 
+    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50;
   }
   .btn-primary {
     @apply bg-gradient-to-r from-red-400 bg-red-500 text-white hover:from-red-600 hover:bg-red-700 focus:ring-red-500;
@@ -16,14 +16,14 @@
   }
   .spinner {
     @apply animate-spin absolute rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500;
-    top: calc((100% - 4rem)/2);
-    left: calc((100% - 4rem)/2);
+    top: calc((100% - 4rem) / 2);
+    left: calc((100% - 4rem) / 2);
   }
   .thead {
     @apply px-6 py-3 text-center text-xs  text-gray-500 uppercase tracking-wider;
   }
   .td {
-    @apply truncate overflow-hidden verflow-ellipsis px-6 py-4 whitespace-nowrap text-center text-gray-500
+    @apply truncate overflow-hidden verflow-ellipsis px-6 py-4 whitespace-nowrap text-center text-gray-500;
   }
   .tr {
     @apply cursor-pointer;
@@ -31,11 +31,11 @@
   .toggle-checkbox:checked {
     @apply right-0 border-green-400;
     right: 0;
-    border-color: #68D391;
+    border-color: #68d391;
   }
   .toggle-checkbox:checked + .toggle-label {
     @apply bg-green-400;
-    background-color: #68D391;
+    background-color: #68d391;
   }
   .card {
     @apply max-w-full w-9/12 shadow-lg py-8 px-8 bg-white shadow-lg rounded-lg my-20;
